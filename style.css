@@ -99,17 +99,14 @@ header.nav-hidden {
   cursor: pointer;
 }
 
-/* Esconde checkbox padrão */
 #menu-toggle {
   display: none;
 }
 
-/* Navegação responsiva (mobile) */
 @media (max-width: 768px) {
   .menu-icon {
     display: block;
   }
-
   .navbar {
     display: none;
     width: 100%;
@@ -119,56 +116,23 @@ header.nav-hidden {
     border-top: 1px solid #333;
     padding-top: 1rem;
   }
-
   #menu-toggle:checked ~ .navbar {
     display: flex;
   }
-
   .navbar a {
     padding: 0.5rem 1rem;
     border-bottom: 1px solid #222;
   }
 }
 
-/* Skills com vídeo de fundo */
-#skills {
-  position: relative;
-  overflow: hidden;
-}
-
-.skills-video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: 0;
-  filter: brightness(0.5) contrast(1.2);
-}
-
-#skills::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.4);
-  z-index: 1;
-}
-
-#skills .container {
-  position: relative;
-  z-index: 2;
-}
-
-/* Projetos com vídeo de fundo */
+/* Seções com vídeo */
+#skills,
 #projetos {
   position: relative;
   overflow: hidden;
 }
 
+.skills-video,
 .projetos-video {
   position: absolute;
   top: 0;
@@ -180,6 +144,7 @@ header.nav-hidden {
   filter: brightness(0.5) contrast(1.2);
 }
 
+#skills::before,
 #projetos::before {
   content: "";
   position: absolute;
@@ -191,12 +156,13 @@ header.nav-hidden {
   z-index: 1;
 }
 
+#skills .container,
 #projetos .container {
   position: relative;
   z-index: 2;
 }
 
-/* Hero - destaque inicial com vídeo e texto */
+/* Hero */
 .hero {
   position: relative;
   display: flex;
@@ -241,7 +207,6 @@ header.nav-hidden {
 .hero-img {
   flex: 1;
   text-align: center;
-  animation: float 3s ease-in-out infinite;
 }
 
 .profile-img {
@@ -265,48 +230,6 @@ header.nav-hidden {
   color: #fff;
 }
 
-.hero-text h2,
-.hero-text p {
-  text-align: left;
-}
-
-.hero-text p {
-  margin: 1rem 0 2rem;
-  color: #ccc;
-}
-
-/* Botão principal reutilizável */
-.btn-primary {
-  background-color: #fff;
-  color: #0a0a0a;
-  padding: 0.75rem 1.5rem;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: bold;
-  transition: background 0.3s ease;
-}
-
-.btn-primary:hover {
-  background-color: #ccc;
-}
-
-/* Hero responsivo */
-@media (max-width: 768px) {
-  .hero-grid {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .hero-text h2,
-  .hero-text p {
-    text-align: center;
-  }
-
-  .hero-text {
-    align-items: center;
-  }
-}
-
 /* Seções gerais */
 .section {
   padding: 3rem 2rem;
@@ -320,27 +243,7 @@ header.nav-hidden {
   text-align: center;
 }
 
-.section-title {
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
-.section-subtitle {
-  font-size: 1.1rem;
-  color: #aaa;
-  margin-bottom: 2rem;
-  line-height: 1.6;
-}
-
-.section-text {
-  font-size: 1.05rem;
-  line-height: 1.8;
-  color: #bbb;
-  margin-bottom: 1.2rem;
-  text-align: center;
-}
-
-/* Grid de skills (cards) */
+/* Grid de skills */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
@@ -354,290 +257,85 @@ header.nav-hidden {
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
-  text-align: center;
   padding: 1rem;
   border-radius: 8px;
   width: 6rem;
   height: 6rem;
   background-color: #1a1a1a;
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.05);
-  transition: transform 0.2s ease;
   border: 1px solid #333;
 }
 
-.skill-card:hover {
-  transform: translateY(-5px);
-  border-color: #555;
-}
-
-.skill-card i {
-  font-size: 40px;
-  color: #fff;
-}
-
-.skill-card span {
-  font-weight: 600;
-  font-size: 0.95rem;
-  color: #ccc;
-}
-
-/* Tags de skills alternativa (não usada por padrão) */
-.skills-list-icons {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  margin-top: 1.5rem;
-}
-
-.skill-tag {
-  background-color: #fff;
-  color: #0a0a0a;
-  padding: 0.6rem 1rem;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-weight: 600;
-  font-size: 0.95rem;
-}
-
-.skill-tag i {
-  font-size: 1.1rem;
-}
-
-/* Botão base genérico */
-.btn {
-  display: inline-block;
-  margin-top: 1rem;
-  background-color: #fff;
-  color: #0a0a0a;
-  padding: 0.75rem 1.5rem;
-  border-radius: 4px;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-/* Seção de projetos */
+/* Projetos e Pastas */
 .projetos-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
   margin-top: 2rem;
 }
 
+.folder {
+  border: 1px solid #333;
+  border-radius: 8px;
+  background-color: #111;
+}
+
+.folder summary {
+  padding: 1.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.folder[open] summary {
+  border-bottom: 1px solid #333;
+}
+
+.folder summary::after {
+  content: " ▾";
+}
+.folder[open] summary::after {
+  content: " ▴";
+}
+
+.folder-content {
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+/* Card do Projeto */
 .projeto-card {
   border: 1px solid #333;
   border-radius: 8px;
-  overflow: hidden;
   background-color: #151515;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  transition: transform 0.2s ease;
-}
-
-.projeto-card:hover {
-  transform: translateY(-5px);
-  border-color: #555;
 }
 
 .projeto-card img {
   width: 100%;
-  height: auto;
   display: block;
 }
 
-.projeto-card h3 {
-  margin: 1rem;
-  font-size: 1.25rem;
-  color: #fff;
-}
-
-.projeto-card p {
-  margin: 0 1rem 1rem;
-  font-size: 0.95rem;
-  color: #aaa;
-}
-
+.projeto-card h3,
+.projeto-card p,
 .projeto-card .btns {
-  display: flex;
-  gap: 1rem;
   margin: 1rem;
-  flex-wrap: wrap;
 }
 
 .projeto-card .btns a {
   background-color: #fff;
   color: #0a0a0a;
-  text-decoration: none;
   padding: 0.5rem 1rem;
+  text-decoration: none;
   border-radius: 4px;
   font-weight: bold;
-  font-size: 0.9rem;
 }
 
-.projeto-card .btns a:hover {
-  background-color: #ccc;
-}
-
-.projeto-card .btns span {
-  color: #888;
-  padding: 0.5rem 1rem;
-  font-weight: bold;
-  font-size: 0.9rem;
-  cursor: not-allowed;
-  opacity: 0.6;
-}
-
-/* Card de contato com ícones sociais */
-.contato-card {
-  background: transparent;
-  border: none;
-  padding: 3rem 2rem;
-  text-align: center;
-  box-shadow: none;
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-.contato-card h2 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-  color: #fff;
-}
-
-.contato-card p {
-  font-size: 1.1rem;
-  color: #aaa;
-  margin-bottom: 2rem;
-}
-
-.btn-social {
-  background-color: transparent;
-  color: #fff;
-  padding: 0.75rem 1.25rem;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 0.95rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: color 0.3s ease;
-  border: 1px solid #333;
-}
-
-.btn-social:hover {
-  color: #ccc;
-  border-color: #555;
-}
-
-.social-links {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.btn-social i {
-  font-size: 1.1rem;
-}
-
-/* Ícones sociais no hero */
-.social-links-hero {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 1.5rem;
-  flex-wrap: wrap;
-}
-
-.btn-social-icon {
-  background-color: transparent;
-  color: #fff;
-  width: 40px;
-  height: 40px;
-  border: 1px solid #333;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-  text-decoration: none;
-}
-
-.btn-social-icon:hover {
-  border-color: #555;
-  color: #ccc;
-  transform: translateY(-3px);
-}
-
-.btn-social-icon i {
-  font-size: 1.2rem;
-}
-
-/* Localidade abaixo dos ícones sociais */
-.location-text {
-  color: #fff;
-  text-align: center;
-  margin-top: 0.35rem;
-  font-size: 0.95rem;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
-}
-
-.location-text i {
-  color: #fff;
-  font-size: 1rem;
-  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
-}
-
-/* Soft Skills cards */
-.soft-skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
-  margin-top: 2rem;
-}
-
-.soft-skill-card {
-  border: 1px solid #333;
-  border-radius: 8px;
-  overflow: hidden;
-  background-color: #151515;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-  transition: transform 0.2s ease;
-}
-
-.soft-skill-card:hover {
-  transform: translateY(-5px);
-  border-color: #555;
-}
-
-.soft-skill-card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  display: block;
-}
-
-.soft-skill-card h3 {
-  margin: 1rem;
-  font-size: 1.25rem;
-  color: #fff;
-}
-
-.soft-skill-card p {
-  margin: 0 1rem 1rem;
-  font-size: 0.95rem;
-  color: #aaa;
-  line-height: 1.6;
-}
-
-/* Footer com créditos */
+/* Footer */
 footer {
   text-align: center;
   padding: 2rem 1rem;
@@ -646,14 +344,31 @@ footer {
   background-color: #0a0a0a;
   border-top: 1px solid #222;
 }
-
-footer a {
-  color: #aaa;
-  text-decoration: none;
-  font-weight: 500;
+/* Container para alinhar título e modelo lado a lado */
+.hero-header-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap; /* Quebra para baixo em telas muito pequenas */
 }
 
-footer a:hover {
-  text-decoration: underline;
-  color: #fff;
+/* Tamanho coerente para o modelo 3D */
+.model-container {
+  width: 120px;
+  height: 120px;
+  flex-shrink: 0;
+}
+
+.model-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* Ajuste para mobile (opcional) */
+@media (max-width: 768px) {
+  .hero-header-wrapper {
+    justify-content: center;
+  }
 }
